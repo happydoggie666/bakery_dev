@@ -36,4 +36,30 @@ And in the `app.js`, I load the data from the `bakery-data.json` file and pass i
 For the `item.handleRemove`, `item.handleAdd` and  `item.nums`. I use state to help me track the details.
 
 ### How the User Triggers State Changes
-##### 1. If users 
+The website has 3 big function components
+1. Add/Remove item
+2. Sort By some category
+3. Types filter (revertible by un-clicking the checkbox)
+
+And I use the following state to track the details
+
+```javascript
+    const [cart, setCart] = useState({}); 
+    const [numItemInCart, setNumItemInCart] = useState(0);
+    const [filters, setFilters] = useState({
+        All:true,
+    });
+    const [sortProperty, setSortProperty] = useState("NA");
+```
+From the above: 
+- `[cart, setCart]` is a dictionary which has a list of values.  <br>
+i.e. It is in the form of `{item_name：[num_in_cart，item.price]}`
+
+- `[numItemInCart, setNumItemInCart]` tracks the total number of items in the cart. I use this to judge when the cart session should render "no item in cart".
+
+- `[filters, setFilters]` tracks the type of filter users select. It by default is set to  `"All"`. I use a dictionary here for the state to represent a list of filters. And the dictionary is in the form of  `{filter_type：true or false}`
+
+- `[sortProperty, setSortProperty]` tracks the sorting option that people choose. It is by default `"NA"`, which means people do not select a sorting method.
+
+
+##### 1. If users add a item to cart
