@@ -62,4 +62,44 @@ i.e. It is in the form of `{item_name：[num_in_cart，item.price]}`
 - `[sortProperty, setSortProperty]` tracks the sorting option that people choose. It is by default `"NA"`, which means people do not select a sorting method.
 
 
-##### 1. If users add a item to cart
+##### 1. If users add/remove a item to cart
+It will change the `[cart, setCart]` state and the `[numItemInCart, setNumItemInCart]` state. For example, the current `cart` state is `{"Chocolate Chip Cookies"：[1，7.99]}`.  <br>
+
+- When we add a Matcha Mille Crepe Cake to the cart, the cart state would change to :
+
+```javascript{
+{
+"Chocolate Chip Cookies"：[1，7.99],
+"Matcha Mille Crepe Cake"：[1，4.99]
+}
+``` 
+The `numItemInCart` state would change to 2, that is the previous state (1+1). <br>
+And the `handleAdd()` function deals with this. 
+
+- When we move a Matcha Mille Crepe Cake from the above cart, the cart state would change to:
+
+```javascript{
+{
+"Chocolate Chip Cookies"：[1，7.99]
+}
+```
+The `numItemInCart` state would change to 1, that is previous state (2-1).<br>
+And the `handleRemove()` function deal with this. It also deal with some boundary cases.
+
+##### 2. If users select filters for the items
+It will change the `[filters, setFilters]` state. For example, the current `filters` state is `{All:true}`.  <br>
+
+When we click the `Sweet` and `Cake` filter and unclick the `All` filter. The `filters` state would change to: 
+
+```javascript{
+{
+All: false,
+Sweet: true,
+Cake: true,
+}
+``` 
+
+##### 3. If users select sorting method
+It will change the `[sortProperty, setSortProperty]` state. For example, the current `sortProperty` state is `"NA"`.  <br>
+
+When we click sorting by `Price` . The  `sortProperty` state would change to `{Price}`
