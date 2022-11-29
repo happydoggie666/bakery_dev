@@ -74,7 +74,7 @@ It will change the `[cart, setCart]` state and the `[numItemInCart, setNumItemIn
 }
 ``` 
 The `numItemInCart` state would change to 2, that is the previous state (1+1). <br>
-And the `handleAdd()` function deals with this. 
+And the `handleAdd(items)` function deals with this. 
 
 - When we move a Matcha Mille Crepe Cake from the above cart, the cart state would change to:
 
@@ -84,7 +84,7 @@ And the `handleAdd()` function deals with this.
 }
 ```
 The `numItemInCart` state would change to 1, that is previous state (2-1).<br>
-And the `handleRemove()` function deal with this. It also deal with some boundary cases.
+And the `handleRemove(items)` function deal with this. It also deal with some boundary cases.
 
 ##### 2. If users select filters for the items
 It will change the `[filters, setFilters]` state. For example, the current `filters` state is `{All:true}`.  <br>
@@ -99,7 +99,11 @@ Cake: true,
 }
 ``` 
 
+And the `handleFilter(event)` function deals with this. 
+
 ##### 3. If users select sorting method
 It will change the `[sortProperty, setSortProperty]` state. For example, the current `sortProperty` state is `"NA"`.  <br>
 
 When we click sorting by `Price` . The  `sortProperty` state would change to `{Price}`
+
+And the `sortProduct(data)` function deals with this.
