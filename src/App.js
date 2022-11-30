@@ -2,6 +2,7 @@ import "./App.css";
 import React, {useState} from 'react';
 import bakeryData from "./assets/bakery-data.json";
 import Batem from "./components/BakeryItem";
+import CartSes from "./components/CartSession";
 
 import { FormGroup, FormControlLabel, Checkbox } from '@material-ui/core';
 
@@ -183,11 +184,11 @@ function App() {
 
                 {/* Right Cart Session */}
                 <div class="col-md-2">
-                    <div>
+                    {/* <div>
                         <h2>Cart</h2>
                         {/* TODO: render a list of items in the cart */}
-                        {/* {console.log(numItemInCart)} */}
-                        {(numItemInCart === 0) ? <h5>No Items Added Yet</h5> : 
+                       
+                        {/* {(numItemInCart === 0) ? <h5>No Items Added Yet</h5> : 
                         <div>
                             <ul class="list-group">
                                 {Object.entries(cart).map(([key, value], index) =>(
@@ -198,8 +199,16 @@ function App() {
                             </ul>
                             <h3>Total: ${Math.round(Object.values(cart).reduce((all, cur) => all + cur[0]*cur[1], 0)*100)/100}</h3>
                         </div>}
-                    </div>
+                    </div>  */} 
+
+                    {/* Change to component */}
+                    <CartSes 
+                        cart = {cart}
+                        numItemInCart = {numItemInCart}
+                    />
+
                 </div>
+                
             </div>
         </div>
     );
