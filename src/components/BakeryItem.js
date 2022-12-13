@@ -1,5 +1,10 @@
 // TODO: create a component that displays a single bakery item
+
 import {useState} from 'react';
+
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container'
 
 export default function Batem(item) {
 
@@ -16,8 +21,9 @@ export default function Batem(item) {
     // }
 
     return (
-        <div class="col-md-5 col-lg-4">
-            <div class="card h-100">
+        <div class="col-md-5 col-lg-4 d-flex align-items-stretch">
+            <div style={{marginBottom:"30px"}}>
+            <div class="card h-100" style={{height:"700px"}}>
                 <img src={item.image} class="card-img-top" alt={'unknown'}/>
                 <div class="card-body">
                     <h3 class="card-title">{item.name}</h3>
@@ -34,6 +40,8 @@ export default function Batem(item) {
                     </div>
                 </div>
             </div>
+            </div>
         </div>
+
     );
 }
