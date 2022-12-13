@@ -118,7 +118,7 @@ function App() {
        
             <img style={{resizeMode: "contain",height: 180,width: 450}} src="images/logo.png" class="card-img-top" alt={'Logo'}/>
 
-            <div class="row">
+            <div class="row"  style={{marginLeft: "2%", marginRight:"2%"}}>
 
                 {/* Left Filter Session */}
                 <div class="col-md-2">
@@ -160,7 +160,7 @@ function App() {
                 </div>
                 
                 {/* Product Page */}
-                <div class="col-md-8">
+                <div class="col-md-8" style={{marginBottom: "2%"}}>
                     <div class="row">
 
                         {filteredData.map((item, index) => (
